@@ -121,6 +121,10 @@
   color: #242424;
   border-bottom: 1px solid #242424;
 }
+
+.reading:hover .startreading {
+  color: #242424;
+}
 .startreading {
   text-decoration: none;
   color: #ffff;
@@ -146,25 +150,31 @@
 .footer {
   height: 80px;
   width: 100%;
-  background-color: #ffff;
+  /* background-color: #ffff; */
   margin-left: 20px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 .foot-sec {
-  display: block;
-  width: 80%;
+  /* display: block; */
+  /* width: 80%; */
   height: 40px;
   padding: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.foot-logo {
+
+.foot-sec > a {
+  text-decoration: none;
+}
+
+.foot-sec .foot-logo {
   background-image: url("./Images/Travelog_logo.png");
   background-size: contain;
   background-repeat: no-repeat;
-  width: 20%;
+  width: 160px;
   height: 40px;
+  display: block;
 }
