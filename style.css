@@ -2,6 +2,9 @@
   margin: 0px;
   box-sizing: border-box;
 }
+body {
+  background-color: aliceblue;
+}
 .nav-bar {
   width: 100%;
   height: 80px;
@@ -103,70 +106,57 @@
   font-size: 20px;
 }
 
-/* form css */
-/* .form-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-  max-width: 720px;
-  background: #fff;
-  border: 2px solid #fff;
-  transform: translate(-50%, -70%);
-} */
-
+/* form css*/
 .blur-background {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
   height: 100%;
   width: 100%;
+  backdrop-filter: blur(5px);
   opacity: 0;
   pointer-events: none;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(5px);
   transition: 0.1s ease;
-  /* background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 50px; */
 }
-
-.showPopupButton .blur-background {
+.show-popup .blur-background {
   opacity: 1;
   pointer-events: auto;
 }
+
 .login {
   width: 485px;
   height: 665px;
-  /* background-color: rgb(255, 255, 255); */
   background-color: rgb(255, 255, 255);
   border-radius: 32px;
-
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
   top: 20px;
   left: 450px;
-
-  opacity: 1;
+  opacity: 0;
+  pointer-events: none;
 }
+.show-popup .login {
+  opacity: 1;
+  pointer-events: auto;
+
+  /*   transition: 0.3s ease opacity 0.1s; */
+}
+
 .close-button {
-  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
   height: 30px;
-
+  border-radius: 50%;
   font-size: 30px;
-
-  color: rgb(42, 40, 40);
-
+  cursor: pointer;
+  color: rgb(17, 17, 17);
   transform: translate(420px, 20px);
+}
+.close-button:hover {
+  background-color: rgb(234, 229, 229);
 }
 
 .travelog-logo {
@@ -188,15 +178,18 @@
   justify-content: center;
   margin-top: 10px;
 }
-.welcome > h1 {
-  font-size: 34px;
+.welcome h1 {
+  display: block;
+  font-size: 32px;
   color: rgb(51, 51, 51);
   font-weight: 600;
   letter-spacing: -1.2px;
-
-  font-family: "Segoe UI", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  word-break: keep-all;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
     Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo,
+    "ＭＳ Ｐゴシック", Arial, sans-serif;
 }
 .form-cotainer {
   width: 270px;
@@ -352,26 +345,25 @@
   border: none;
   color: rgb(51, 51, 51);
   font-weight: bold;
+  cursor: pointer;
 }
-/* 
-signup 
-.signup {
+
+/* signup form css */
+.signup-form {
   width: 485px;
   height: 665px;
-  //background-color: rgb(255, 255, 255); 
   background-color: rgb(255, 255, 255);
   border-radius: 32px;
-
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
   top: 20px;
   left: 450px;
-  z-index: 10;
-  opacity: 1;
   display: none;
+  opacity: 1;
 }
-//date of birth 
+
+/* date of birth */
 .dob {
   cursor: pointer;
   display: block;
@@ -386,7 +378,7 @@ signup
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
     Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+    "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Arial, sans-serif;
 }
 .dob-container {
   color: rgb(33, 25, 34);
@@ -405,27 +397,32 @@ signup
 .dob-container .dob-input {
   width: 100%;
   height: 48px;
+  cursor: text;
   background-color: rgb(255, 255, 255);
   font-weight: 400;
   outline-color: rgb(42, 42, 236);
+
   border-radius: 16px;
   font-size: 16px;
   border: 2px solid rgb(205, 205, 205);
   padding-left: 8px;
   box-sizing: border-box;
-  position: relative;
+}
+.pass-container:hover input {
+  border: 3px solid rgb(180, 179, 179);
 }
 
-.submit-button {
+/* submit button */
+.submit-button-signup {
   width: 268px;
   height: 68px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 20;
+  top: 20px;
 }
-.submit-button button {
+.submit-button-signup button {
   width: 268px;
   height: 48px;
   border: 0px;
@@ -440,25 +437,37 @@ signup
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
-.submit-button:hover button {
+.submit-button-signup button {
   background-color: #91c41a;
 }
-.button-container {
-  width: 175px;
-  height: 14px;
 
-  position: relative;
-  top: 20px;
+.already-account {
+  width: 268px;
+  height: 14px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-left: 50px;
+  align-items: center;
+  position: relative;
+  top: 30px;
 }
-.button-container .signup-button {
-  background: none;
+.already-account .already {
+  color: rgb(17, 17, 17);
   display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Arial,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 400px;
+  pointer-events: none;
+}
+.already-account .already-button {
+  display: block;
+  background: none;
   border: none;
+  text-align: left;
   color: rgb(51, 51, 51);
   font-weight: bold;
+  cursor: pointer;
 }
- */
