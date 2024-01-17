@@ -1,14 +1,21 @@
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
-.outer {
-  width: 1440px;
-  height: 705px;
-  background-color: aquamarine;
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.1s ease;
+  /* background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 50px; */
 }
 .login {
   width: 485px;
@@ -18,7 +25,22 @@
 
   background-size: contain;
   background-repeat: no-repeat;
+  position: fixed;
+  top: 20px;
+  left: 450px;
+  z-index: 10;
 }
+.close-button {
+  width: 25px;
+  height: 30px;
+
+  font-size: 30px;
+
+  color: rgb(42, 40, 40);
+
+  transform: translate(420px, 20px);
+}
+
 .travelog-logo {
   width: 200px;
   height: 45px;

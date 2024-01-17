@@ -18,6 +18,9 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
+
+    <script type="text/javascript" defer src="passwordVisible.js"></script>
+    <script src="popup.js" defer></script>
   </head>
   <body>
     <header>
@@ -28,7 +31,7 @@
           <div class="nav-content">
             <a href="AboutTravelog.html" target="_blank">Our Story</a>
             <a href="#">Write</a>
-            <a href="#">Sign in</a>
+            <a href="">Sign in</a>
 
             <button class="getstarted">Get Started</button>
           </div>
@@ -50,5 +53,136 @@
         </div>
       </div>
     </header>
+
+    <div class="blur-background"></div>
+    <div class="form-popup">
+      <div class="login">
+        <div class="close-button"><i class="fa-solid fa-xmark"></i></div>
+        <div class="travelog-logo"></div>
+        <div class="welcome">
+          <h1>welcome to Travelog</h1>
+        </div>
+
+        <div class="form-cotainer">
+          <form id="form-register" action="POST" novalidate>
+            <div class="email">
+              <label for="email"> Email </label>
+            </div>
+            <span>
+              <div class="email-container">
+                <input
+                  type="email"
+                  id="email"
+                  name="password"
+                  autocomplete="email"
+                  placeholder="Email"
+                  spellcheck="false"
+                />
+              </div>
+            </span>
+            <br />
+
+            <div class="password">
+              <label for="password"> Password </label>
+            </div>
+            <span>
+              <div class="pass-container">
+                <input
+                  class="password-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="list"
+                  placeholder="Password"
+                  spellcheck="false"
+                />
+                <span class="eye" onclick="passwordVisibile()">
+                  <i id="icon1" class="fa-solid fa-eye"></i>
+                  <i id="icon2" class="fa-solid fa-eye-slash"></i>
+                </span>
+
+                <div class="submit-button">
+                  <button>Log in</button>
+                </div>
+
+                <div class="signup-button">
+                  <button class="signup">Not on Travelog? Signup</button>
+                </div>
+              </div>
+            </span>
+          </form>
+        </div>
+      </div>
+
+<!--       <div class="signup">
+        <div class="close-button"><i class="fa-solid fa-xmark"></i></div>
+        <div class="travelog-logo"></div>
+        <div class="welcome">
+          <h1>welcome to Travelog</h1>
+        </div>
+
+        <div class="form-cotainer">
+          <form id="form-register" action="POST" novalidate>
+            <div class="email">
+              <label for="email"> Email </label>
+            </div>
+            <span>
+              <div class="email-container">
+                <input
+                  type="email"
+                  id="email"
+                  name="password"
+                  autocomplete="email"
+                  placeholder="Email"
+                  spellcheck="false"
+                />
+              </div>
+            </span>
+            <br />
+
+            <div class="password">
+              <label for="password"> Password </label>
+            </div>
+            <span>
+              <div class="pass-container">
+                <input
+                  class="password-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="list"
+                  placeholder="create a password"
+                  spellcheck="false"
+                />
+                <span class="eye" onclick="passwordVisibile()">
+                  <i id="icon1" class="fa-solid fa-eye"></i>
+                  <i id="icon2" class="fa-solid fa-eye-slash"></i>
+                </span>
+
+                <br />
+                <div class="dob">
+                  <label for="dob">Date of Birth</label>
+                </div>
+                <div class="dob-container">
+                  <input
+                    class="dob-input"
+                    type="date"
+                    id="dob"
+                    name="dob"
+                    pattern="\d{1,2}/\d{1,2}/\d{4}"
+                    placeholder="dd/mm/yyyy"
+                    required
+                  />
+                </div>
+
+                <div class="submit-button">
+                  <button>Continue</button>
+                </div>
+              </div>
+            </span>
+          </form>
+        </div>
+      </div> -->
+    </div>
   </body>
 </html>
