@@ -113,7 +113,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   opacity: 0;
   pointer-events: none;
   transition: 0.1s ease;
@@ -131,9 +131,10 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  top: 20px;
-  left: 450px;
+  top: 50%;
+  left: 50%;
   opacity: 0;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 .show-popup .login {
@@ -297,6 +298,7 @@ body {
   top: 15px;
   font-size: 10px;
 }
+
 #icon1 {
   display: none;
 }
@@ -357,10 +359,9 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  top: 20px;
-  left: 450px;
-  display: none;
-  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* date of birth */
@@ -408,6 +409,10 @@ body {
   padding-left: 8px;
   box-sizing: border-box;
 }
+.dob-input:hover {
+  border: 3px solid rgb(180, 179, 179);
+}
+
 .pass-container:hover input {
   border: 3px solid rgb(180, 179, 179);
 }
@@ -437,10 +442,10 @@ body {
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
-.submit-button-signup button {
+
+.submit-button-signup:hover button {
   background-color: #91c41a;
 }
-
 .already-account {
   width: 268px;
   height: 14px;
@@ -470,4 +475,7 @@ body {
   color: rgb(51, 51, 51);
   font-weight: bold;
   cursor: pointer;
+}
+.d-none {
+  display: none;
 }

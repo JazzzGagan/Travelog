@@ -1,357 +1,480 @@
-/* Importing Google font - Open Sans */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
+  margin: 0px;
+  box-sizing: border-box;
 }
-
 body {
-    height: 100vh;
-    width: 100%;
-    background: url("images/hero-bg.jpg") center/cover no-repeat;
+  background-color: aliceblue;
+}
+.nav-bar {
+  width: 100%;
+  height: 80px;
+  background-color: #a2d729;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.nav-container {
+  width: 90%;
+  height: 60px;
+  background-color: transparent;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  background-image: url("./Images/Travelog_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 60px;
+}
+.nav-content {
+  width: 30%;
+  height: 60px;
+  margin-left: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: Helvetica, Arial;
+}
+.nav-content a {
+  text-decoration: none;
+  color: #242424;
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    padding: 0 10px;
+.getstarted {
+  width: 130px;
+  height: 40px;
+  border-radius: 40px;
+  border: none;
+  background-color: #191919;
+  color: #ffff;
+  cursor: pointer;
+  transition: 0.25 ease;
 }
 
-.navbar {
-    display: flex;
-    padding: 22px 0;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    justify-content: space-between;
+.hero-section {
+  background-image: url("./Images/hero_image.jpg");
+  width: 100%;
+  height: 455px;
+  background-position: center;
+  background-size: cover;
+
+  border-bottom: 1px solid black;
+}
+.hero-message {
+  margin-left: 90px;
+  width: 560px;
+  height: 455px;
+  color: #ffff;
+}
+.hero-message h2 {
+  font-size: 106px;
+  font-weight: 400;
+  font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-feature-settings: "pnum", "lnum";
+  letter-spacing: -5.3px;
+  line-height: 95px;
+  position: relative;
+  top: 40px;
+}
+.message span p {
+  width: 480px;
+  height: 48px;
+  font-size: 24px;
+  font-weight: 2px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  top: 80px;
+}
+.btn2 {
+  position: relative;
+  top: 140px;
+  width: 213px;
+  height: 42px;
+  background-color: #191919;
+  color: #ffff;
+  border-radius: 40px;
+  border: none;
+  background-attachment: scroll;
+  background-clip: border-box;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
 }
 
-.navbar .hamburger-btn {
-    display: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1.5rem;
+/* form css*/
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  display: none;
+  pointer-events: none;
+  transition: 0.1s ease;
+}
+/* .show-popup .blur-background {
+  opacity: 1;
+  pointer-events: auto;
+} */
+
+.login {
+  width: 485px;
+  height: 665px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 20px;
+  left: 450px;
+  /*  opacity: 0; */
+  pointer-events: none;
+
+  z-index: 10;
+}
+/* .show-popup .login {
+  opacity: 1;
+  pointer-events: auto;
+
+  /*   transition: 0.3s ease opacity 0.1s; 
+} */
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(17, 17, 17);
+  transform: translate(420px, 20px);
+}
+.close-button:hover {
+  background-color: rgb(234, 229, 229);
 }
 
-.navbar .logo {
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+.travelog-logo {
+  width: 200px;
+  height: 45px;
+  margin: auto;
+  margin-top: 80px;
+
+  background-image: url("./Images/Travelog_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.welcome {
+  margin: 0px auto 22px;
+  width: 400px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.welcome h1 {
+  display: block;
+  font-size: 32px;
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  word-break: keep-all;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo,
+    "ＭＳ Ｐゴシック", Arial, sans-serif;
+}
+.form-cotainer {
+  width: 270px;
+  height: 410px;
+  margin: 0px auto;
+}
+.email {
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  width: 260px;
+  height: 18px;
+}
+.email label {
+  color: rgb(33, 25, 34);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+}
+.email-container {
+  color: rgb(33, 25, 34);
+
+  width: 268px;
+  height: 48px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+  font-size: 18px;
+  position: relative;
+  top: 8px;
+}
+.email-container input {
+  width: 100%;
+  height: 48px;
+
+  background-color: rgb(255, 255, 255);
+  font-weight: 400;
+  outline-color: rgb(42, 42, 236);
+
+  border-radius: 16px;
+  font-size: 16px;
+  border: 2px solid rgb(205, 205, 205);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.email-container:hover input {
+  border: 3px solid rgb(180, 179, 179);
 }
 
-.navbar .logo img {
-    width: 40px;
-    border-radius: 50%;
+.password {
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  width: 260px;
+  height: 18px;
+  position: relative;
+}
+.password label {
+  color: rgb(33, 25, 34);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Arial, sans-serif;
+}
+.pass-container {
+  color: rgb(33, 25, 34);
+
+  width: 268px;
+  height: 48px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+  font-size: 18px;
+  position: relative;
+  top: 8px;
+}
+.pass-container input {
+  width: 100%;
+  height: 48px;
+
+  background-color: rgb(255, 255, 255);
+  font-weight: 400;
+  outline-color: rgb(42, 42, 236);
+
+  border-radius: 16px;
+  font-size: 16px;
+  border: 2px solid rgb(205, 205, 205);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.pass-container:hover input {
+  border: 3px solid rgb(180, 179, 179);
 }
 
-.navbar .logo h2 {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.7rem;
+.eye {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  font-size: 10px;
 }
 
-.navbar .links {
-    display: flex;
-    gap: 35px;
-    list-style: none;
-    align-items: center;
+#icon1 {
+  display: none;
 }
 
-.navbar .close-btn {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    display: none;
-    color: #000;
-    cursor: pointer;
+.submit-button {
+  width: 268px;
+  height: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 20px;
+}
+.submit-button button {
+  width: 268px;
+  height: 48px;
+  border: 0px;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 0px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  background-color: #a2d729;
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.submit-button:hover button {
+  background-color: #91c41a;
+}
+.signup-button {
+  width: 175px;
+  height: 14px;
+
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+}
+.signup-button .signup {
+  background: none;
+  display: block;
+  border: none;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.navbar .links a {
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: 0.1s ease;
+/* signup form css */
+.signup-form {
+  width: 485px;
+  height: 665px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 20px;
+  left: 450px;
+  display: none;
+  opacity: 1;
 }
 
-.navbar .links a:hover {
-    color: #19e8ff;
+/* date of birth */
+.dob {
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  width: 260px;
+  height: 18px;
+  position: relative;
+}
+.dob label {
+  color: rgb(33, 25, 34);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Arial, sans-serif;
+}
+.dob-container {
+  color: rgb(33, 25, 34);
+
+  width: 268px;
+  height: 48px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+  font-size: 18px;
+  position: relative;
+  top: 8px;
+}
+.dob-container .dob-input {
+  width: 100%;
+  height: 48px;
+  cursor: text;
+  background-color: rgb(255, 255, 255);
+  font-weight: 400;
+  outline-color: rgb(42, 42, 236);
+
+  border-radius: 16px;
+  font-size: 16px;
+  border: 2px solid rgb(205, 205, 205);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.pass-container:hover input {
+  border: 3px solid rgb(180, 179, 179);
 }
 
-.navbar .login-btn {
-    border: none;
-    outline: none;
-    background: #fff;
-    color: #275360;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 0.15s ease;
+/* submit button */
+.submit-button-signup {
+  width: 268px;
+  height: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 20px;
+}
+.submit-button-signup button {
+  width: 268px;
+  height: 48px;
+  border: 0px;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 0px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  background-color: #a2d729;
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.submit-button-signup button {
+  background-color: #91c41a;
 }
 
-.navbar .login-btn:hover {
-    background: #ddd;
+.already-account {
+  width: 268px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 30px;
+}
+.already-account .already {
+  color: rgb(17, 17, 17);
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Arial,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 400px;
+  pointer-events: none;
+}
+.already-account .already-button {
+  display: block;
+  background: none;
+  border: none;
+  text-align: left;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.form-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    max-width: 720px;
-    background: #fff;
-    border: 2px solid #fff;
-    transform: translate(-50%, -70%);
-}
-
-.show-popup .form-popup {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%);
-    transition: transform 0.3s ease, opacity 0.1s;
-}
-
-.form-popup .close-btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    color: #878484;
-    cursor: pointer;
-}
-
-.blur-bg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    transition: 0.1s ease;
-}
-
-.show-popup .blur-bg-overlay {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.form-popup .form-box {
-    display: flex;
-}
-
-.form-box .form-details {
-    width: 100%;
-    color: #fff;
-    max-width: 330px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.login .form-details {
-    padding: 0 40px;
-    background: url("images/login-img.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.signup .form-details {
-    padding: 0 20px;
-    background: url("images/signup-img.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.form-box .form-content {
-    width: 100%;
-    padding: 35px;
-}
-
-.form-box h2 {
-    text-align: center;
-    margin-bottom: 29px;
-}
-
-form .input-field {
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.input-field input {
-    height: 100%;
-    width: 100%;
-    background: none;
-    outline: none;
-    font-size: 0.95rem;
-    padding: 0 15px;
-    border: 1px solid #717171;
-    border-radius: 3px;
-}
-
-.input-field input:focus {
-    border: 1px solid #00bcd4;
-}
-
-.input-field label {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #4a4646;
-    pointer-events: none;
-    transition: 0.2s ease;
-}
-
-.input-field input:is(:focus, :valid) {
-    padding: 16px 15px 0;
-}
-
-.input-field input:is(:focus, :valid)~label {
-    transform: translateY(-120%);
-    color: #00bcd4;
-    font-size: 0.75rem;
-}
-
-.form-box a {
-    color: #00bcd4;
-    text-decoration: none;
-}
-
-.form-box a:hover {
-    text-decoration: underline;
-}
-
-form :where(.forgot-pass-link, .policy-text) {
-    display: inline-flex;
-    margin-top: 13px;
-    font-size: 0.95rem;
-}
-
-form button {
-    width: 100%;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 14px 0;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 3px;
-    cursor: pointer;
-    margin: 25px 0;
-    background: #00bcd4;
-    transition: 0.2s ease;
-}
-
-form button:hover {
-    background: #0097a7;
-}
-
-.form-content .bottom-link {
-    text-align: center;
-}
-
-.form-popup .signup,
-.form-popup.show-signup .login {
-    display: none;
-}
-
-.form-popup.show-signup .signup {
-    display: flex;
-}
-
-.signup .policy-text {
-    display: flex;
-    margin-top: 14px;
-    align-items: center;
-}
-
-.signup .policy-text input {
-    width: 14px;
-    height: 14px;
-    margin-right: 7px;
-}
-
-@media (max-width: 950px) {
-    .navbar :is(.hamburger-btn, .close-btn) {
-        display: block;
-    }
-
-    .navbar {
-        padding: 15px 0;
-    }
-
-    .navbar .logo img {
-        display: none;
-    }
-
-    .navbar .logo h2 {
-        font-size: 1.4rem;
-    }
-
-    .navbar .links {
-        position: fixed;
-        top: 0;
-        z-index: 10;
-        left: -100%;
-        display: block;
-        height: 100vh;
-        width: 100%;
-        padding-top: 60px;
-        text-align: center;
-        background: #fff;
-        transition: 0.2s ease;
-    }
-
-    .navbar .links.show-menu {
-        left: 0;
-    }
-
-    .navbar .links a {
-        display: inline-flex;
-        margin: 20px 0;
-        font-size: 1.2rem;
-        color: #000;
-    }
-
-    .navbar .links a:hover {
-        color: #00BCD4;
-    }
-
-    .navbar .login-btn {
-        font-size: 0.9rem;
-        padding: 7px 10px;
-    }
-}
-
-@media (max-width: 760px) {
-    .form-popup {
-        width: 95%;
-    }
-
-    .form-box .form-details {
-        display: none;
-    }
-
-    .form-box .form-content {
-        padding: 30px 20px;
-    }
+.d-none {
+  display: none;
 }
