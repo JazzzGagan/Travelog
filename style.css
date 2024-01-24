@@ -479,3 +479,19 @@ body {
 .d-none {
   display: none;
 }
+
+.close-singup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(17, 17, 17);
+  transform: translate(420px, 20px);
+}
+.close-singup:hover {
+  background-color: rgb(234, 229, 229);
+}

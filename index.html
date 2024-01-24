@@ -61,7 +61,7 @@
         </div>
 
         <div class="form-cotainer">
-          <form id="form-register" action="POST" novalidate>
+          <form id="form-register" action="login.php" method="post" novalidate>
             <div class="email">
               <label for="email"> Email </label>
             </div>
@@ -101,7 +101,7 @@
             </span>
 
             <div class="submit-button">
-              <button>Log in</button>
+              <button type="submit">Log in</button>
             </div>
 
             <div class="signup-button">
@@ -116,7 +116,7 @@
       <!--   signup -->
 
       <div class="signup-form d-none">
-        <div class="close-button"><i class="fa-solid fa-xmark"></i></div>
+        <div class="close-singup"><i class="fa-solid fa-xmark"></i></div>
         <div class="travelog-logo"></div>
         <div class="welcome">
           <h1>Welcome to Travelog</h1>
@@ -155,7 +155,7 @@
                   placeholder="Password"
                   spellcheck="false"
                 />
-                <span class="eye" onclick="hideVisibile()">
+                <span class="eye" onclick="signupPasswordVisible()">
                   <i id="icon1" class="fa-solid fa-eye"></i>
                   <i id="icon2" class="fa-solid fa-eye-slash"></i>
                 </span>
@@ -212,13 +212,38 @@
 
       //Back to Login page if already has
       const backToLogin = document.querySelector(".already-button");
+      const hidesingup = document.querySelector(".close-singup");
       backToLogin.addEventListener("click", () => {
         document.querySelector(".signup-form").classList.add("d-none");
         document.querySelector(".login").classList.remove("d-none");
       });
 
+      hidesingup.addEventListener("click", () => {
+        document.querySelector(".signup-form").style.display = "none";
+        document.querySelector(".blur-background").style.opacity = "0";
+      });
+
+      //hide signup form
+      /* const hidesingup = document.querySelector(".close-singup"); */
+
       //Password Visible function
       const passwordVisibile = () => {
+        const x = document.getElementById("password");
+        const visible = document.getElementById("icon1");
+        const hide = document.getElementById("icon2");
+
+        if (x.type === "password") {
+          x.type = "text";
+          visible.style.display = "block";
+          hide.style.display = "none";
+        } else {
+          x.type = "password";
+          visible.style.display = "none";
+          hide.style.display = "block";
+        }
+      };
+
+      const signupPasswordVisible = () => {
         const x = document.getElementById("password");
         const visible = document.getElementById("icon1");
         const hide = document.getElementById("icon2");
