@@ -1,2 +1,11 @@
 <?php
-echo "This is test";
+include 'dbconnect.php'; 
+
+ $email = $_POST['email'];
+$password = $_POST['password'];
+
+
+
+
+
+?>

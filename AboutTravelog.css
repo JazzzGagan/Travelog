@@ -14,7 +14,6 @@
 .nav-container {
   width: 70%;
   height: 60px;
-
   position: relative;
   left: 80px;
 }
@@ -24,6 +23,8 @@
   background-repeat: no-repeat;
   width: 350px;
   height: 60px;
+  display: block;
+  pointer-events: visible;
 }
 .signin-signup {
   width: 20%;

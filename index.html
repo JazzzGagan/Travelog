@@ -27,10 +27,14 @@
 
           <div class="nav-content">
             <a href="AboutTravelog.html" target="_blank">Our Story</a>
-            <a href="#">Write</a>
-            <a href="">Sign in</a>
+            <a href="#">Booking</a>
+            <!-- <a href="#">Sign in</a> -->
 
-            <button class="getstarted">Get Started</button>
+            <!--  <button class="getstarted">Get Started</button> -->
+            <div class="signin-signup">
+              <button class="signin">Sign in</button>
+              <button class="signup">Sign up</button>
+            </div>
           </div>
         </div>
       </div>
@@ -46,14 +50,14 @@
               </p>
             </span>
           </div>
-          <button class="btn2">Start Reading</button>
+          <!-- <button class="btn2">Start Reading</button> -->
         </div>
       </div>
     </header>
 
     <div class="blur-background"></div>
     <div class="form-popup">
-      <div class="login">
+      <div class="login e-none">
         <div class="close-button"><i class="fa-solid fa-xmark"></i></div>
         <div class="travelog-logo"></div>
         <div class="welcome">
@@ -70,7 +74,7 @@
                 <input
                   type="email"
                   id="email"
-                  name="password"
+                  name="email"
                   autocomplete="email"
                   placeholder="Email"
                   spellcheck="false"
@@ -105,7 +109,7 @@
             </div>
 
             <div class="signup-button">
-              <button class="signup" type="button">
+              <button class="login-signup" type="button">
                 Not on Travelog? Signup
               </button>
             </div>
@@ -119,20 +123,33 @@
         <div class="close-singup"><i class="fa-solid fa-xmark"></i></div>
         <div class="travelog-logo"></div>
         <div class="welcome">
-          <h1>Welcome to Travelog</h1>
+          <h1>Join Travelog</h1>
         </div>
 
         <div class="form-cotainer">
-          <form id="form-register" action="POST" novalidate>
-            <div class="email">
+          <form id="form-register" action="signup.php" method="post" novalidate>
+            <div class="username">
+              <label for="username">FullName</label>
+            </div>
+            <div class="username-container">
+              <input
+                class="username-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Fullname"
+                required
+              />
+            </div>
+            <div class="email-signup">
               <label for="email"> Email </label>
             </div>
             <span>
-              <div class="email-container">
+              <div class="email-signup-container">
                 <input
                   type="email"
                   id="email"
-                  name="password"
+                  name="email"
                   autocomplete="email"
                   placeholder="Email"
                   spellcheck="false"
@@ -141,11 +158,11 @@
             </span>
             <br />
 
-            <div class="password">
+            <div class="password-signup">
               <label for="password"> Password </label>
             </div>
             <span>
-              <div class="pass-container">
+              <div class="pass-signup-container">
                 <input
                   class="password-input"
                   type="password"
@@ -155,15 +172,15 @@
                   placeholder="Password"
                   spellcheck="false"
                 />
-                <span class="eye" onclick="signupPasswordVisible()">
-                  <i id="icon1" class="fa-solid fa-eye"></i>
-                  <i id="icon2" class="fa-solid fa-eye-slash"></i>
+                <span class="eye1" onclick="signupPasswordVisible()">
+                  <i id="icon3" class="fa-solid fa-eye"></i>
+                  <i id="icon4" class="fa-solid fa-eye-slash"></i>
                 </span>
               </div>
             </span>
 
             <br />
-            <div class="dob">
+            <!--  <div class="dob">
               <label for="dob">Date of Birth</label>
             </div>
             <div class="dob-container">
@@ -176,10 +193,10 @@
                 placeholder="dd/mm/yyyy"
                 required
               />
-            </div>
+            </div> -->
 
             <div class="submit-button-signup">
-              <button>Continue</button>
+              <button type="submit" name="submit">Continue</button>
             </div>
 
             <div class="already-account">
@@ -191,9 +208,13 @@
       </div>
     </div>
 
+    <!--   <button id="demo">The time is?</button> -->
+
     <script>
+      /* const time = (document.getElementById("demo").innerHTML = Date()); */
+
       //Form pop up function
-      const showPopupBtn = document.querySelector(".getstarted");
+      const showPopupBtn = document.querySelector(".signin");
       const hidePopupBtn = document.querySelector(".form-popup .close-button");
 
       showPopupBtn.addEventListener("click", () => {
@@ -204,7 +225,7 @@
 
       //Direct to signup page if user have no account
 
-      const signupBtn = document.querySelector(".signup");
+      const signupBtn = document.querySelector(".login-signup");
       signupBtn.addEventListener("click", () => {
         document.querySelector(".signup-form").classList.remove("d-none");
         document.querySelector(".login").classList.add("d-none");
@@ -244,20 +265,37 @@
       };
 
       const signupPasswordVisible = () => {
-        const x = document.getElementById("password");
-        const visible = document.getElementById("icon1");
-        const hide = document.getElementById("icon2");
+        const y = document.querySelector(".pass-signup-container #password ");
+        const visible1 = document.getElementById("icon3");
+        const hide1 = document.getElementById("icon4");
 
-        if (x.type === "password") {
-          x.type = "text";
-          visible.style.display = "block";
-          hide.style.display = "none";
+        if (y.type === "password") {
+          y.type = "text";
+          visible1.style.display = "block";
+          hide1.style.display = "none";
         } else {
-          x.type = "password";
-          visible.style.display = "none";
-          hide.style.display = "block";
+          y.type = "password";
+          visible1.style.display = "none";
+          hide1.style.display = "block";
         }
       };
+
+      const signupPopUp = document.querySelector(".signup");
+      const closeSigup = document.querySelector(".close-singup");
+      const loginPopUp = document.querySelector(".already-account");
+
+      signupPopUp.addEventListener("click", () => {
+        document.querySelector(".signup-form").style.display = "block";
+      });
+
+      closeSigup.addEventListener("click", () => {
+        document.querySelector(".signup-form").style.display = "none";
+      });
+
+      loginPopUp.addEventListener("click", () => {
+        document.querySelector(".login").classList.remove("e-none");
+        document.querySelector(".signup-form").classList.add("e-none");
+      });
     </script>
   </body>
 </html>

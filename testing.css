@@ -33,7 +33,7 @@ body {
   height: 60px;
 }
 .nav-content {
-  width: 30%;
+  width: 80%;
   height: 60px;
   margin-left: 600px;
   display: flex;
@@ -45,8 +45,33 @@ body {
   text-decoration: none;
   color: #242424;
 }
-
-.getstarted {
+.signin-signup {
+  /*   width: 50%;
+  height: 60px;
+  margin-left: 80px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; */
+  margin-left: 60px;
+}
+.signin-signup button {
+  height: 35px;
+  width: 100px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.signin {
+  background-color: transparent;
+  border: 1px solid #ffff;
+  color: #ffff;
+  background-color: #242424;
+}
+.signup {
+  border: none;
+  margin-left: 20px;
+}
+/* .getstarted {
   width: 130px;
   height: 40px;
   border-radius: 40px;
@@ -55,7 +80,7 @@ body {
   color: #ffff;
   cursor: pointer;
   transition: 0.25 ease;
-}
+} */
 
 .hero-section {
   background-image: url("./Images/hero_image.jpg");
@@ -114,14 +139,14 @@ body {
   height: 100%;
   width: 100%;
   backdrop-filter: blur(10px);
-  display: none;
+  opacity: 0;
   pointer-events: none;
   transition: 0.1s ease;
 }
-/* .show-popup .blur-background {
+.show-popup .blur-background {
   opacity: 1;
   pointer-events: auto;
-} */
+}
 
 .login {
   width: 485px;
@@ -131,19 +156,18 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  top: 20px;
-  left: 450px;
-  /*  opacity: 0; */
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-
-  z-index: 10;
 }
-/* .show-popup .login {
+.show-popup .login {
   opacity: 1;
   pointer-events: auto;
 
-  /*   transition: 0.3s ease opacity 0.1s; 
-} */
+  /*   transition: 0.3s ease opacity 0.1s; */
+}
 
 .close-button {
   display: flex;
@@ -342,7 +366,7 @@ body {
   justify-content: center;
   margin-left: 50px;
 }
-.signup-button .signup {
+.signup-button .login-signup {
   background: none;
   display: block;
   border: none;
@@ -353,21 +377,28 @@ body {
 
 /* signup form css */
 .signup-form {
-  width: 485px;
-  height: 665px;
+  width: 678px;
+  height: 695px;
   background-color: rgb(255, 255, 255);
   border-radius: 32px;
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  top: 20px;
-  left: 450px;
-  display: none;
-  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signup-container {
+  width: 550px;
+  height: 410px;
+  margin: 0px auto;
+  background-color: #a2d729;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* date of birth */
-.dob {
+.username {
   cursor: pointer;
   display: block;
   text-align: left;
@@ -375,7 +406,7 @@ body {
   height: 18px;
   position: relative;
 }
-.dob label {
+.username label {
   color: rgb(33, 25, 34);
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -383,7 +414,7 @@ body {
     Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Arial, sans-serif;
 }
-.dob-container {
+.username-container {
   color: rgb(33, 25, 34);
 
   width: 268px;
@@ -397,7 +428,7 @@ body {
   position: relative;
   top: 8px;
 }
-.dob-container .dob-input {
+.username-container .username-input {
   width: 100%;
   height: 48px;
   cursor: text;
@@ -411,6 +442,10 @@ body {
   padding-left: 8px;
   box-sizing: border-box;
 }
+.username-input:hover {
+  border: 3px solid rgb(180, 179, 179);
+}
+
 .pass-container:hover input {
   border: 3px solid rgb(180, 179, 179);
 }
@@ -440,10 +475,10 @@ body {
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
-.submit-button-signup button {
+
+.submit-button-signup:hover button {
   background-color: #91c41a;
 }
-
 .already-account {
   width: 268px;
   height: 14px;
@@ -474,7 +509,22 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-
 .d-none {
   display: none;
+}
+
+.close-singup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(17, 17, 17);
+  transform: translate(600px, 20px);
+}
+.close-singup:hover {
+  background-color: rgb(234, 229, 229);
 }
