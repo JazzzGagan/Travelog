@@ -1,3 +1,33 @@
+<?php
+$is_invalid = false;
+if($_SERVER['REQUEST_METHOD']=== "POST"){
+    $mysqli = require __DIR__. "/dbconnect.php";
+
+    $sql = sprintf("SELECT * FROM users
+                where email = '%s'",
+                $mysqli->real_escape_string(
+                $_POST["email"]));
+
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+
+    if($user){
+        if(password_verify($_POST["password"], $user["password_hash"])){
+
+             session_start();
+             session_regenerate_id();
+             $_SESSION["user_id"] = $user["id"];
+             header("Location: index.php");
+             exit;
+
+
+        }
+    }
+    $is_invalid = true;
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +47,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="testing.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/js/validation.js" defer></script>
   </head>
   <body>
     <header>
@@ -57,15 +89,20 @@
 
     <div class="blur-background"></div>
     <div class="form-popup">
-      <div class="login">
+      <div class="login e-none">
         <div class="close-button"><i class="fa-solid fa-xmark"></i></div>
         <div class="travelog-logo"></div>
         <div class="welcome">
           <h1>Welcome to Travelog</h1>
         </div>
-
         <div class="form-cotainer">
-          <form id="form-register" action="login.php" method="post" novalidate>
+
+        <?php if($is_invalid): ?>
+              <em>Invalid Login</em>
+        <?php endif; ?> 
+
+          <form id="form-register"  method="POST" novalidate>
+        
             <div class="email">
               <label for="email"> Email </label>
             </div>
@@ -74,11 +111,12 @@
                 <input
                   type="email"
                   id="email"
-                  name="password"
+                  name="email"
                   autocomplete="email"
                   placeholder="Email"
                   spellcheck="false"
-                />
+                  value="<?= htmlspecialchars($_POST["email"] ?? "")?>">
+                
               </div>
             </span>
             <br />
@@ -105,7 +143,13 @@
             </span>
 
             <div class="submit-button">
-              <button type="submit">Log in</button>
+             <!--  <button class="btn btn-primary"> Log in</button> -->
+              <input
+                type="submit"
+                class="btn btn-primary"
+                name="submit"
+                value="Log in"
+              />
             </div>
 
             <div class="signup-button">
@@ -126,22 +170,97 @@
           <h1>Join Travelog</h1>
         </div>
 
-        <div class="signup-container">
-          <form id="form-register" action="POST" novalidate>
-            <!-- <div class="submit-button-signup">
-              <button>Continue</button>
+        <div class="form-cotainer">
+          <form id="form-register validate" action="signup.php" method="POST" novalidate>
+            <div class="username">
+              <label for="name">FullName</label>
+            </div>
+            <div class="username-container">
+              <input
+                class="username-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Fullname"
+              />
+            </div>
+            <div class="email-signup">
+              <label for="email"> Email </label>
+            </div>
+            <span>
+              <div class="email-signup-container">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="Email"
+                  spellcheck="false"
+                />
+              </div>
+            </span>
+            <br />
+
+            <div class="password-signup">
+              <label for="password"> Password </label>
+            </div>
+            <span>
+              <div class="pass-signup-container">
+                <input
+                  class="password-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="list"
+                  placeholder="Password"
+                  spellcheck="false"
+                />
+                <span class="eye1" onclick="signupPasswordVisible()">
+                  <i id="icon3" class="fa-solid fa-eye"></i>
+                  <i id="icon4" class="fa-solid fa-eye-slash"></i>
+                </span>
+              </div>
+            </span>
+
+            <br />
+            <!--  <div class="dob">
+              <label for="dob">Date of Birth</label>
+            </div>
+            <div class="dob-container">
+              <input
+                class="dob-input"
+                type="date"
+                id="dob"
+                name="dob"
+                pattern="\d{1,2}/\d{1,2}/\d{4}"
+                placeholder="dd/mm/yyyy"
+                required
+              />
+            </div> -->
+
+            <div class="submit-button-signup">
+              <input
+                type="submit"
+                name="submit"
+                class="btn-continue"
+                value="Continue"
+              />
             </div>
 
             <div class="already-account">
               <div class="already">Already a Member?</div>
               <button class="already-button" type="button">Login</button>
-            </div> -->
+            </div>
           </form>
         </div>
       </div>
     </div>
 
+    <!--   <button id="demo">The time is?</button> -->
+
     <script>
+      /* const time = (document.getElementById("demo").innerHTML = Date()); */
+
       //Form pop up function
       const showPopupBtn = document.querySelector(".signin");
       const hidePopupBtn = document.querySelector(".form-popup .close-button");
@@ -173,13 +292,8 @@
         document.querySelector(".blur-background").style.opacity = "0";
       });
 
-      //Singup Page
-      const signupPop = document.querySelector(".singup.signup");
-
-      signupPop.addEventListener("click", () => {
-        document.querySelector(".signup").style.display =
-          "block";
-      });
+      //hide signup form
+      /* const hidesingup = document.querySelector(".close-singup"); */
 
       //Password Visible function
       const passwordVisibile = () => {
@@ -199,20 +313,37 @@
       };
 
       const signupPasswordVisible = () => {
-        const x = document.getElementById("password");
-        const visible = document.getElementById("icon1");
-        const hide = document.getElementById("icon2");
+        const y = document.querySelector(".pass-signup-container #password ");
+        const visible1 = document.getElementById("icon3");
+        const hide1 = document.getElementById("icon4");
 
-        if (x.type === "password") {
-          x.type = "text";
-          visible.style.display = "block";
-          hide.style.display = "none";
+        if (y.type === "password") {
+          y.type = "text";
+          visible1.style.display = "block";
+          hide1.style.display = "none";
         } else {
-          x.type = "password";
-          visible.style.display = "none";
-          hide.style.display = "block";
+          y.type = "password";
+          visible1.style.display = "none";
+          hide1.style.display = "block";
         }
       };
+
+      const signupPopUp = document.querySelector(".signup");
+      const closeSigup = document.querySelector(".close-singup");
+      const loginPopUp = document.querySelector(".already-account");
+
+      signupPopUp.addEventListener("click", () => {
+        document.querySelector(".signup-form").style.display = "block";
+      });
+
+      closeSigup.addEventListener("click", () => {
+        document.querySelector(".signup-form").style.display = "none";
+      });
+
+      loginPopUp.addEventListener("click", () => {
+        document.querySelector(".login").classList.remove("e-none");
+        document.querySelector(".signup-form").classList.add("e-none");
+      });
     </script>
   </body>
 </html>

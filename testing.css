@@ -71,6 +71,12 @@ body {
   border: none;
   margin-left: 20px;
 }
+.signin:hover {
+  background-color: #3b3838;
+}
+.signup:hover {
+  background-color: #e9e1e1;
+}
 /* .getstarted {
   width: 130px;
   height: 40px;
@@ -319,12 +325,23 @@ body {
 
 .eye {
   position: absolute;
-  right: 5px;
-  top: 15px;
-  font-size: 10px;
+  right: 12px;
+  top: 12px;
+  font-size: 12px;
 }
 
 #icon1 {
+  display: none;
+}
+
+.eye1 {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 12px;
+}
+
+#icon3 {
   display: none;
 }
 
@@ -337,7 +354,7 @@ body {
   position: relative;
   top: 20px;
 }
-.submit-button button {
+.submit-button .btn {
   width: 268px;
   height: 48px;
   border: 0px;
@@ -352,7 +369,7 @@ body {
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
-.submit-button:hover button {
+.submit-button:hover .btn {
   background-color: #91c41a;
 }
 .signup-button {
@@ -377,8 +394,8 @@ body {
 
 /* signup form css */
 .signup-form {
-  width: 678px;
-  height: 695px;
+  width: 485px;
+  height: 665px;
   background-color: rgb(255, 255, 255);
   border-radius: 32px;
   background-size: contain;
@@ -388,16 +405,55 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.signup-container {
-  width: 550px;
-  height: 410px;
-  margin: 0px auto;
-  background-color: #a2d729;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
+/* date of birth */
+/* .dob {
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  width: 260px;
+  height: 18px;
+  position: relative;
+}
+.dob label {
+  color: rgb(33, 25, 34);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Arial, sans-serif;
+}
+.dob-container {
+  color: rgb(33, 25, 34);
+
+  width: 268px;
+  height: 48px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+  font-size: 18px;
+  position: relative;
+  top: 8px;
+}
+.dob-container .dob-input {
+  width: 100%;
+  height: 48px;
+  cursor: text;
+  background-color: rgb(255, 255, 255);
+  font-weight: 400;
+  outline-color: rgb(42, 42, 236);
+
+  border-radius: 16px;
+  font-size: 16px;
+  border: 2px solid rgb(205, 205, 205);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.dob-input:hover {
+  border: 3px solid rgb(180, 179, 179);
+} */
 .username {
   cursor: pointer;
   display: block;
@@ -446,7 +502,104 @@ body {
   border: 3px solid rgb(180, 179, 179);
 }
 
-.pass-container:hover input {
+/* Email input */
+.email-signup {
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  width: 260px;
+  height: 18px;
+  position: relative;
+  top: 15px;
+}
+.email-signup label {
+  color: rgb(33, 25, 34);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+}
+.email-signup-container {
+  color: rgb(33, 25, 34);
+
+  width: 268px;
+  height: 48px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+  font-size: 18px;
+  position: relative;
+  top: 20px;
+}
+.email-signup-container input {
+  width: 100%;
+  height: 48px;
+
+  background-color: rgb(255, 255, 255);
+  font-weight: 400;
+  outline-color: rgb(42, 42, 236);
+
+  border-radius: 16px;
+  font-size: 16px;
+  border: 2px solid rgb(205, 205, 205);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.email-signup-container:hover input {
+  border: 3px solid rgb(180, 179, 179);
+}
+
+/* signup Password input */
+
+.password-signup {
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  width: 260px;
+  height: 18px;
+  position: relative;
+  top: 10px;
+}
+.password-signup label {
+  color: rgb(33, 25, 34);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Arial, sans-serif;
+}
+.pass-signup-container {
+  color: rgb(33, 25, 34);
+
+  width: 268px;
+  height: 48px;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+  font-size: 18px;
+  position: relative;
+  top: 20px;
+}
+.pass-signup-container input {
+  width: 100%;
+  height: 48px;
+
+  background-color: rgb(255, 255, 255);
+  font-weight: 400;
+  outline-color: rgb(42, 42, 236);
+
+  border-radius: 16px;
+  font-size: 16px;
+  border: 2px solid rgb(205, 205, 205);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.pass-signup-container:hover input {
   border: 3px solid rgb(180, 179, 179);
 }
 
@@ -460,7 +613,7 @@ body {
   position: relative;
   top: 20px;
 }
-.submit-button-signup button {
+.submit-button-signup .btn-continue {
   width: 268px;
   height: 48px;
   border: 0px;
@@ -476,7 +629,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.submit-button-signup:hover button {
+.submit-button-signup:hover .btn-continue {
   background-color: #91c41a;
 }
 .already-account {
@@ -523,7 +676,7 @@ body {
   font-size: 30px;
   cursor: pointer;
   color: rgb(17, 17, 17);
-  transform: translate(600px, 20px);
+  transform: translate(420px, 20px);
 }
 .close-singup:hover {
   background-color: rgb(234, 229, 229);

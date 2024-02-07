@@ -354,7 +354,7 @@ body {
   position: relative;
   top: 20px;
 }
-.submit-button button {
+.submit-button .btn {
   width: 268px;
   height: 48px;
   border: 0px;
@@ -369,7 +369,7 @@ body {
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
-.submit-button:hover button {
+.submit-button:hover .btn {
   background-color: #91c41a;
 }
 .signup-button {
@@ -613,7 +613,7 @@ body {
   position: relative;
   top: 20px;
 }
-.submit-button-signup button {
+.submit-button-signup .btn-continue {
   width: 268px;
   height: 48px;
   border: 0px;
@@ -629,7 +629,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.submit-button-signup:hover button {
+.submit-button-signup:hover .btn-continue {
   background-color: #91c41a;
 }
 .already-account {

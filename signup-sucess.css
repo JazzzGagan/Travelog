@@ -1,0 +1,22 @@
+body {
+  background-color: #202b38;
+}
+.signup {
+  position: relative;
+  left: 300px;
+  color: #ffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif;
+}
+.signup h1 {
+  font-size: 35px;
+}
+.signup p {
+  color: #dbdbdb;
+}
+.signup a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #1c76c5;
+}

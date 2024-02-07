@@ -19,15 +19,15 @@ if(!preg_match("/[0-9]/", $_POST["password"])){
     die("Password must contain at least one number");
 }
 
-/* if($_POST["password"] !== $_POST["password_confirmation"]){
+if($_POST["password"] !== $_POST["password_confirmation"]){
     die("Passwords must match");
-} */
+}
 
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-$mysqli = require __DIR__. "/dbconnect.php";
+$mysqli = require __DIR__. "/database.php";
 
-$sql = "INSERT INTO users(name, email, password_hash)
+$sql = "INSERT INTO user(name, email, password_hash)
 VALUES(?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
@@ -42,9 +42,8 @@ $stmt->bind_param("sss",
 
 try {
     if($stmt->execute()){
-      header("Location: signup-sucess.html");
-      exit;
-
+       header("Location: homepage.html");
+       exit;
     }
 } catch (mysqli_sql_exception $e) {
     if($e->getCode() === 1062){
@@ -53,51 +52,4 @@ try {
         die("An error occurred: " . $e->getMessage());
     }
 }
-
-
- 
- /*    print_r($_POST);
-       var_dump($password_hash);  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-       /* if(mysqli_query($con,$sql)){
-           echo "<script> alert('new record inserted')</script>";
-           echo"<script>window.open('index.html', '_self')</script>";
-       }
-       else{
-           echo "error: ".mysqli_error($con);
-       }
-       mysqli_close($con); 
-    }
- */
-    
-    
-     
- 
-
 ?>
