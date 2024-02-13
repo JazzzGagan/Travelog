@@ -1,4 +1,5 @@
 <?php
+
 if(empty($_POST['name'])){
     die("Name is required");
 }

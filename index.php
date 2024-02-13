@@ -28,6 +28,14 @@ if(isset($_SESSION["user_id"])){
     <link rel="stylesheet" href="signup-sucess.css" />
   </head>
   <body>
+      <div class="navbar-container">
+        <div class="nav-bar"></div>
+      </div>
+
+
+
+
+
     <div class="signup">
       <h1>Home</h1>
       <?php if(isset($user)): ?>
@@ -36,8 +44,8 @@ if(isset($_SESSION["user_id"])){
 
         <p><a href="logout.php">Log out</a></p>
 
-        <?php else: ?>
-            <p><a href="travelog.php">Log in or signup</a></p>
+        <?php else: header("Location: travelog.php"); ?>
+            <!-- <p><a href="travelog.php">Log in or signup</a></p> -->
 
         <?php endif; ?>
     </div>

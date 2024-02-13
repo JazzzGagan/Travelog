@@ -20,3 +20,9 @@ body {
   text-decoration: none;
   color: #1c76c5;
 }
+
+.navbar-container {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+}

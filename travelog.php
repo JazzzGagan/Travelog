@@ -49,7 +49,8 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
-    <script src="/js/validation.js" defer></script>
+    <script src="./js/validation.js" defer></script>
+   
   </head>
   <body>
     <header>
@@ -171,7 +172,7 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
         </div>
 
         <div class="form-cotainer">
-          <form id="form-register validate" action="signup.php" method="POST" novalidate>
+          <form id="formregister" action="signup.php" method="POST" novalidate>
             <div class="username">
               <label for="name">FullName</label>
             </div>
@@ -179,7 +180,7 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
               <input
                 class="username-input"
                 type="text"
-                id="name"
+                id="username"
                 name="name"
                 placeholder="Fullname"
               />
@@ -241,7 +242,6 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
             <div class="submit-button-signup">
               <input
                 type="submit"
-                name="submit"
                 class="btn-continue"
                 value="Continue"
               />
@@ -267,6 +267,8 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
 
       showPopupBtn.addEventListener("click", () => {
         document.body.classList.toggle("show-popup");
+        document.querySelector(".signup-form").classList.add("d-none");
+        document.querySelector(".login").classList.remove("d-none");
       });
 
       hidePopupBtn.addEventListener("click", () => showPopupBtn.click());
@@ -290,6 +292,8 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
       hidesingup.addEventListener("click", () => {
         document.querySelector(".signup-form").style.display = "none";
         document.querySelector(".blur-background").style.opacity = "0";
+      /*   document.querySelector(".blur-background").style.display = "none"; */
+        
       });
 
       //hide signup form
@@ -333,6 +337,8 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
       const loginPopUp = document.querySelector(".already-account");
 
       signupPopUp.addEventListener("click", () => {
+
+        document.querySelector(".blur-background").style.display = "block";
         document.querySelector(".signup-form").style.display = "block";
       });
 
@@ -344,6 +350,7 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
         document.querySelector(".login").classList.remove("e-none");
         document.querySelector(".signup-form").classList.add("e-none");
       });
+
     </script>
   </body>
 </html>
