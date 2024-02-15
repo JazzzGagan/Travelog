@@ -21,15 +21,36 @@ if(isset($_SESSION["user_id"])){
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <!-- <link
+    <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    /> -->
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="signup-sucess.css" />
   </head>
   <body>
-      <div class="navbar-container">
-        <div class="nav-bar"></div>
+  <div class="nav-container">
+        <div class="nav-bar">
+          <div class="logo"></div>
+          <div class="write">
+          <a href="write.php">
+            <span>
+             <i id="write-icon" class="fa-regular fa-pen-to-square"></i>
+            </span>
+            <div class="text">
+          <h2>Write Diary</h2>
+        </a> 
+          </div>
+          </div>
+        
+     
+     
+        </div>
+          <div class="profile">
+            <div class="profile-circle"></div>
+          </div>
       </div>
 
 

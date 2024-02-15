@@ -12,6 +12,9 @@ body {
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
 }
 .nav-container {
   width: 90%;
@@ -91,10 +94,12 @@ body {
 .hero-section {
   background-image: url("./Images/hero_image.jpg");
   width: 100%;
-  height: 455px;
+  height: 820px;
   background-position: center;
   background-size: cover;
+  position: absolute;
 
+  top: 0px;
   border-bottom: 1px solid black;
 }
 .hero-message {
@@ -102,6 +107,8 @@ body {
   width: 560px;
   height: 455px;
   color: #ffff;
+  position: relative;
+  top: 200px;
 }
 .hero-message h2 {
   font-size: 106px;
@@ -148,7 +155,9 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: 0.1s ease;
+  z-index: 3;
 }
+
 .show-popup .blur-background {
   opacity: 1;
   pointer-events: auto;
@@ -162,8 +171,9 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
+  z-index: 3;
   opacity: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -401,7 +411,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -482,7 +492,7 @@ body {
     "Hiragino Kaku Gothic Pro", Arial, sans-serif;
   font-size: 18px;
   position: relative;
-  top: 8px;
+  top: 6px;
 }
 .username-container .username-input {
   width: 100%;
@@ -510,7 +520,7 @@ body {
   width: 260px;
   height: 18px;
   position: relative;
-  top: 15px;
+  top: 20px;
 }
 .email-signup label {
   color: rgb(33, 25, 34);
@@ -532,7 +542,7 @@ body {
     "Hiragino Kaku Gothic Pro", Arial, sans-serif;
   font-size: 18px;
   position: relative;
-  top: 20px;
+  top: 25px;
 }
 .email-signup-container input {
   width: 100%;
@@ -561,7 +571,7 @@ body {
   width: 260px;
   height: 18px;
   position: relative;
-  top: 10px;
+  top: 20px;
 }
 .password-signup label {
   color: rgb(33, 25, 34);
@@ -583,7 +593,7 @@ body {
     "Hiragino Kaku Gothic Pro", Arial, sans-serif;
   font-size: 18px;
   position: relative;
-  top: 20px;
+  top: 25px;
 }
 .pass-signup-container input {
   width: 100%;
@@ -611,7 +621,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 20px;
+  top: 48px;
 }
 .submit-button-signup .btn-continue {
   width: 268px;
@@ -639,7 +649,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 30px;
+  top: 45px;
 }
 .already-account .already {
   color: rgb(17, 17, 17);
@@ -680,4 +690,9 @@ body {
 }
 .close-singup:hover {
   background-color: rgb(234, 229, 229);
+}
+
+/* Custom CSS to reduce font size of error messages */
+.just-validate-error-label {
+  font-size: 14px !important; /* Adjust font size as needed */
 }
