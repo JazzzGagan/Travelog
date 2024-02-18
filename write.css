@@ -12,6 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 .nav-bar {
   width: 90%;
@@ -32,43 +35,6 @@
   width: 150px;
   height: 40px;
 }
-.publish-container {
-  width: 110px;
-  height: 30px;
-  background-color: #a2d729;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 800px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-.publish-icon {
-  width: 25px;
-  height: 25px;
-  background-image: url("Images/publish-icon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.publish-message {
-  width: 70px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-family: medium-content-sans-serif-font, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-}
-.publish-message h3 {
-  font-weight: 400;
-  letter-spacing: 0;
-  color: #fff;
-}
-.publish-container:hover {
-  background-color: #8ec117;
-}
 
 .profile {
   width: 50px;
@@ -82,4 +48,89 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  top: 80px;
+}
+#title {
+  width: 740px;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 5px;
+
+  /*  border: 1px solid #ccc;
+  border-radius: 5px; */
+  resize: none;
+  font-family: medium-content-title-font, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  font-size: 42px;
+}
+textarea {
+  width: 740px;
+  height: 50px;
+  padding: 10px;
+
+  /*   border: 1px solid #ccc;
+  border-radius: 5px; */
+  outline-color: none;
+  border: none;
+  resize: none;
+  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+}
+textarea:focus {
+  outline: none;
+}
+.input-section #travel-lesson {
+  width: 740px;
+  height: 100px;
+  margin-top: 20px;
+}
+#travel-lesson::placeholder {
+  font-style: italic;
+}
+button {
+  width: 120px;
+  height: 35px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #8ec117;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("Images/publish-icon.png");
+  background-size: 24px 24px; /* Adjust image size */
+  background-repeat: no-repeat;
+  background-position: 10px center; /* Adjust image position */
+}
+
+.button:hover {
+  background-color: #6f8e0b; /* Adjust hover background color as needed */
+}
+
+button:hover {
+  background-color: #a2d729;
+}
+.button-section {
+  margin-left: 350px;
+  margin-top: 100px;
 }

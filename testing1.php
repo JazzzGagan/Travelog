@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD']=== "POST"){
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="testing1.css" type="text/css" />
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="./js/validation.js" defer></script>
    

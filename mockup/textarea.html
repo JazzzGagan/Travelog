@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="textarea.css" />
+  </head>
+  <body>
+    <div class="input-section">
+      <input type="text" id="title" placeholder="Title" />
+    </div>
+
+    <div class="input-section">
+      <textarea
+        id="diary-content"
+        placeholder="Travel Diary Content..."
+      ></textarea>
+    </div>
+
+    <div class="input-section">
+      <textarea id="travel-lesson" placeholder="Travel Lesson..."></textarea>
+    </div>
+
+    <button onclick="submitTravelog()">Post</button>
+
+    <script>
+      function submitTravelog() {
+        var title = document.getElementById("title").value;
+        var diaryContent = document.getElementById("diary-content").value;
+        var travelLesson = document.getElementById("travel-lesson").value;
+
+        // Now you can do something with these values, such as sending them to a server
+
+        console.log("Title: " + title);
+        console.log("Diary Content: " + diaryContent);
+        console.log("Travel Lesson: " + travelLesson);
+      }
+    </script>
+  </body>
+</html>
