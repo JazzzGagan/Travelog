@@ -28,7 +28,7 @@ if(isset($_SESSION["user_id"])){
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="signup-sucess.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
   <div class="nav-container">

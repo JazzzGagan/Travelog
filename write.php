@@ -20,6 +20,7 @@
   </header>
 
   <section>
+    
     <div class="input-section">
       <textarea name="titile" id="title" placeholder="Title"></textarea>
     </div>
