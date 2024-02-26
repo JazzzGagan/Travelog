@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         <div class="nav-content">
           <a href="AboutTravelog.html" target="_blank">Our Story</a>
-          <a href="#">Booking</a>
+          <a href="booking.html">Booking</a>
           <!-- <a href="#">Sign in</a> -->
 
           <!--  <button class="getstarted">Get Started</button> -->

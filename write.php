@@ -1,3 +1,52 @@
+<?php
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Retrieve form data
+  $title = $_POST["title"];
+  $diaryContent = $_POST["diary-content"];
+  $travelLesson = $_POST["travel-lesson"];
+
+  // Retrieve user ID (assuming it's stored in a session variable)
+  session_start();
+  $userId = $_SESSION["user_id"];
+
+  // Perform any necessary validation or sanitization of the form data
+
+  // Connect to the database
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "usercontent";
+
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  // Prepare and execute SQL query to insert form data into the database
+  $sql = "INSERT INTO contents (user_id, title, diary_content, travel_lesson) VALUES (?, ?, ?, ?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ssss", $userId, $title, $diaryContent, $travelLesson);
+
+  if ($stmt->execute()) {
+    echo "Form submitted successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+  // Close database connection
+  $stmt->close();
+  $conn->close();
+}
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,25 +69,26 @@
   </header>
 
   <section>
-    
-    <div class="input-section">
-      <textarea name="titile" id="title" placeholder="Title"></textarea>
-    </div>
+    <form method="post">
+      <div class="input-section">
+        <textarea name="title" id="title" placeholder="Title"></textarea>
+      </div>
 
-    <div class="input-section">
-      <textarea name="diary-content" placeholder="Write your Diary...." id="diary-content"></textarea>
-    </div>
+      <div class="input-section">
+        <textarea name="diary-content" placeholder="Write your Diary...." id="diary-content"></textarea>
+      </div>
 
-    <div class="input-section">
-      <textarea name="travel-lesson" placeholder="Travel Lesson..." id="travel-lesson"></textarea>
-    </div>
+      <div class="input-section">
+        <textarea name="travel-lesson" placeholder="Travel Lesson..." id="travel-lesson"></textarea>
+      </div>
 
-    <div class="button-section">
+      <div class="button-section">
 
-      <div class="publish-icon"></div>
-      <button class="submitTravelog" type="submit">Publish</button>
+        <div class="publish-icon"></div>
+        <button class="submitTravelog" type="submit">Publish</button>
 
-    </div>
+      </div>
+    </form>
 
 
   </section>
