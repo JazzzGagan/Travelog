@@ -49,7 +49,18 @@
   width: 50px;
   height: 50px;
 }
-
+.input-section .photo-container {
+  width: 300px;
+  height: 40px;
+  background-color: #8ec117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -440px;
+  position: relative;
+  bottom: 30px;
+  border-radius: 5px;
+}
 .input-section {
   display: flex;
   flex-direction: column;
@@ -57,8 +68,9 @@
   align-items: center;
 
   position: relative;
-  top: 80px;
+  top: 110px;
 }
+
 #title {
   width: 740px;
   height: 100px;
@@ -66,7 +78,7 @@
   margin-bottom: 5px;
 
   /*  border: 1px solid #ccc;
-  border-radius: 5px; */
+      border-radius: 5px; */
   resize: none;
   font-family: medium-content-title-font, Georgia, Cambria, "Times New Roman",
     Times, serif;
@@ -82,7 +94,7 @@ textarea {
   padding: 10px;
 
   /*   border: 1px solid #ccc;
-  border-radius: 5px; */
+      border-radius: 5px; */
   outline-color: none;
   border: none;
   resize: none;
@@ -132,5 +144,5 @@ button:hover {
 }
 .button-section {
   margin-left: 350px;
-  margin-top: 100px;
+  margin-top: 110px;
 }

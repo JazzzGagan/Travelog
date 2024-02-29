@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       session_start();
       session_regenerate_id();
       $_SESSION["user_id"] = $user["id"];
+
       header("Location: index.php");
       exit;
     }
@@ -28,7 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 }
 
 
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       <div class="form-cotainer">
 
         <?php if ($is_invalid) : ?>
-          <em>Invalid Login</em>
+          <em style="color: red;">Invalid Login</em>
         <?php endif; ?>
 
         <form id="form-register" method="POST" novalidate>

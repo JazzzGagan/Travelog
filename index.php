@@ -13,9 +13,12 @@ if (isset($_SESSION["user_id"])) {
 
 
 $mysqli = mysqli_connect("localhost", "root", "", "usercontent");
+
 $sql = "SELECT title, diary_content FROM contents";
 $result = mysqli_query($mysqli, $sql);
 $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$sql2 = "SELECT "
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +33,7 @@ $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </head>
 
 <body>
+
   <div class="nav-container">
     <div class="nav-bar">
       <div class="logo"></div>
@@ -39,7 +43,7 @@ $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <i id="write-icon" class="fa-regular fa-pen-to-square"></i>
           </span>
           <div class="text">
-            <h2>Write Diary</h2>
+            <h2>Compose</h2>
         </a>
       </div>
     </div>
@@ -48,53 +52,79 @@ $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   </div>
   <div class="profile">
-    <div class="profile-circle"></div>
+    <button class="profile-circle"></button>
   </div>
   </div>
+
+
+  <div class="menu">
+    <div class="user-profile">
+      <div class="user-image-container">
+        <div class="user-image"></div>
+        <div class="user-name-email">
+          <div class="user-name">
+            <?php if (isset($user)) : ?>
+              <p><?= htmlspecialchars($user["name"]) ?></p>
+          </div>
+          <span>Personal</span>
+
+          <div class="user-email">
+            <p class="truncate"><?= htmlspecialchars($user["email"]) ?></p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="log-out">
+
+      <a href="logout.php">sign out</a>
+
+    <?php else : header("Location: travelog.php"); ?>
+    <?php endif; ?>
+    </div>
+  </div>
+
 
 
   <section>
-    <p>
-      <?php
+    <div class="user-diaries">
+      <p>
+        <?php
 
-      foreach ($row as $data)
-        echo "{$data['title']} . <br>
+        foreach ($row as $data)
+          echo "{$data['title']} . <br>
          ";
+        ?>
+      </p>
+      <div class="diary-content">
+        <?php
 
-
-
-      ?>
-    </p>
-    <div class="diary-content">
-      <?php
-
-      foreach ($row as $data)
-        echo "{$data['diary_content']} . <br>
+        foreach ($row as $data)
+          echo "{$data['diary_content']} . <br>
    ";
 
 
 
-      ?>
+        ?>
+      </div>
+
     </div>
   </section>
 
 
-  <div class="signup">
-    <h1>Home</h1>
-    <?php if (isset($user)) : ?>
 
-      <p>Hello <?= htmlspecialchars($user["name"]) ?> </p>
 
-      <p><a href="logout.php">Log out</a></p>
-
-    <?php else : header("Location: travelog.php"); ?>
-      <!-- <p><a href="travelog.php">Log in or signup</a></p> -->
-
-    <?php endif; ?>
-  </div>
 
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuContainer = document.querySelector(".profile");
+      const userMenu = document.querySelector(".menu");
 
+      menuContainer.addEventListener("click", () => {
+        userMenu.classList.toggle("show");
+      })
+    })
   </script>
 </body>
 
