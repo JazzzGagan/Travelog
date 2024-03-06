@@ -21,7 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       session_regenerate_id();
       $_SESSION["user_id"] = $user["id"];
 
+      echo '<script>alert("Sign-in successful.");</script>';
       header("Location: index.php");
+
       exit;
     }
   }

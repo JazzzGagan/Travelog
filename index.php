@@ -8,18 +8,14 @@ if (isset($_SESSION["user_id"])) {
           WHERE id = {$_SESSION["user_id"]}";
 
   $result = $mysqli->query($sql);
+
   $user = $result->fetch_assoc();
 }
 
 
-$mysqli = mysqli_connect("localhost", "root", "", "usercontent");
-
-$sql = "SELECT title, diary_content FROM contents";
-$result = mysqli_query($mysqli, $sql);
-$row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-$sql2 = "SELECT "
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -88,29 +84,151 @@ $sql2 = "SELECT "
 
 
   <section>
-    <div class="user-diaries">
+    <!--  <div class="user-diaries">
       <p>
         <?php
 
-        foreach ($row as $data)
-          echo "{$data['title']} . <br>
-         ";
+        //foreach ($row as $data)
+        //echo "{$data['title']} . <br>
+        // ";
+        //
         ?>
       </p>
       <div class="diary-content">
         <?php
 
-        foreach ($row as $data)
-          echo "{$data['diary_content']} . <br>
-   ";
+        //foreach ($row as $data)
+        //echo "{$data['diary_content']} . <br>
+        // ";
 
 
 
         ?>
-      </div>
+      </div> -->
 
     </div>
   </section>
+  <?php
+
+
+
+  // Check if the user is logged in
+  /* if (!isset($_SESSION['user_id'])) {
+    exit;
+  }
+
+  // Get the user ID from the session
+  $userId = $_SESSION['user_id'];
+
+  // Establish database connection
+  $conn = new mysqli('localhost', 'root', '', 'usercontent');
+
+  // Check database connection
+  if ($conn->connect_error) {
+    die("Connection Failed: " . $conn->connect_error);
+  }
+
+  // Define SQL query to fetch all content for the logged-in user
+  $sql = "SELECT * FROM contents WHERE user_id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("s", $userId);
+
+  // Execute the query
+  $stmt->execute();
+
+  // Get the result set
+  $result = $stmt->get_result();
+
+  // Check if there are any rows returned
+  if ($result->num_rows > 0) {
+    // Loop through each row and display the content
+    while ($row = $result->fetch_assoc()) {
+      // Output HTML content for each row
+      echo '<div class="content">';
+      echo "<h2>" . $row['title'] . "</h2>";
+      echo "<p>" . $row['diary_content'] . "</p>";
+      echo "<p>" . $row['travel_lesson'] . "</p>";
+      echo "<img src='data:image/jpeg;base64," . base64_encode($row['img_data']) . "' height='100px' width='100px' />";
+      echo "</div>";
+    }
+  } else {
+    // No content found
+    echo "No content available.";
+  }
+
+  // Close statement and connection
+  $stmt->close();
+  $conn->close();
+ */
+
+
+
+
+  $conn = require __DIR__ . "/contentdb.php";
+  $query = "SELECT c.id, c.user_id, c.title, c.diary_content, c.travel_lesson, c.img_data, c.user_name
+  FROM contents c
+  INNER JOIN (
+      SELECT user_id, MAX(id) AS latest_id
+      FROM contents
+      GROUP BY user_id
+  ) latest ON c.user_id = latest.user_id AND c.id = latest.latest_id
+  ORDER BY c.id DESC;
+   ";
+
+  $result = $conn->query($query);
+
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      echo '<a href= "view_content.php?id = ' . $row['id'] . '">';
+      print_r($row['id']);
+      echo '<div class="contents">';
+      echo '<div class="content-show">';
+
+      echo '<div class="user-info">';
+      echo '<div class="user-img">';
+      echo "</div>";
+      echo '<p> ' . $row['user_name'] . '</p>';
+
+
+      echo "</div>";
+
+      echo '<div class="title">';
+      echo "<h2>" . $row['title'] . "</h2>";
+      echo "</div>";
+
+      echo '<div class="diary-content">';
+      echo "<p>" . $row['diary_content'] . "</p>";
+      echo "</div>";
+
+      echo '<div class="travel-lesson">';
+      echo '<p><em class="styled-quote">' . $row['travel_lesson'] . '</em></p>';
+      echo "</div>";
+
+      echo '<div class="image">';
+      echo "<img src='data:image/jpeg;base64," . base64_encode($row['img_data']) . "' height='140' width='140'  />";
+      echo "</div>";
+
+      echo "</div>";
+      echo "</div>";
+    }
+  } else {
+    echo "No contents available";
+  }
+
+
+
+
+
+
+
+
+
+
+  ?>
+
+
+
+
 
 
 

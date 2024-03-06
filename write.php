@@ -57,24 +57,41 @@
     }
     $userId = $_SESSION['user_id'];
 
-    $conn = new mysqli('localhost', 'root', '', 'usercontent');
+    $conn = require __DIR__ . "/contentdb.php";
 
     if ($conn->connect_error) {
       die("Connection Failed: " . $conn->connect_error);
     }
 
+    $conn2 = require __DIR__ . "/dbconnect.php";
+    $query = "SELECT name FROM users where id = ?";
+    $stmt2 = $conn2->prepare($query);
+    $stmt2->bind_param("s", $userId);
+    $stmt2->execute();
+    $result = $stmt2->get_result();
+    if ($row = $result->fetch_assoc()) {
+      $userName = $row['name'];
+      // Extract the 'name' value from the fetched row
+    } else {
+      echo "No rows found.";
+    }
+
+
+
     if (isset($_POST['submit'])) {
+
       $imageName = $_FILES['image']['name'];
       $imageType = $_FILES['image']['type'];
-      $imageData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+      $imageData = (file_get_contents($_FILES['image']['tmp_name']));
       $title = $_POST['title'];
       $diaryContent = $_POST['diary-content'];
       $travelLesson = $_POST['travel-lesson'];
 
-      $sql = "INSERT INTO contents(user_id, title, diary_content, travel_lesson, img_name, mime_type, img_data)
-                                      VALUES(?, ?, ?, ?, ?, ?, ?)";
+
+      $sql = "INSERT INTO contents(user_id, title, diary_content, travel_lesson, img_name, mime_type, img_data, user_name)
+                                      VALUES(?, ?, ?, ?, ?, ?, ?,?)";
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param("sssssss", $userId, $title, $diaryContent, $travelLesson, $imageName, $imageType, $imageData);
+      $stmt->bind_param("ssssssss", $userId, $title, $diaryContent, $travelLesson, $imageName, $imageType, $imageData, $userName);
 
       if ($stmt->execute()) {
         echo "Content uploaded sucessfully.";
