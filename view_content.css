@@ -202,68 +202,36 @@ section p {
   background-color: #e3dddd;
   cursor: pointer;
 }
-.user-diaries {
-  position: relative;
-  top: 90px;
-  width: 90%;
-  height: 100%;
-  background-color: white;
-  margin: auto;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.show.profile {
+  display: block;
 }
 
-/* .content {
+.content {
   position: relative;
-  top: 200px;
-  left: 100px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 600px;
-  height: 300px;
-  background-color: aquamarine;
-}
- */
-.contents {
-  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background-color: aquamarine; */
   top: 100px;
-  margin-left: 80px;
-  text-align: justify;
-  width: 80%;
-  height: 100%;
-  /* background-color: aliceblue; */
-
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0.2px solid rgb(183, 179, 179);
-
-  border-top: none;
-  border-left: none;
-  cursor: pointer;
 }
 .content-show {
-  width: 800px;
-  height: 350px;
-  /*  background-color: bisque; */
-  text-decoration: none;
+  width: 750px;
+  height: 100%;
+  background-color: blueviolet;
 }
 .user-info {
-  width: 100%;
+  width: 500px;
   height: 50px;
-  /* background-color: coral; */
-  margin-top: 20px;
+  background-color: bisque;
   display: flex;
   align-items: center;
-  cursor: pointer;
-}
-.user-info p {
-  margin-left: 10px;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
 }
 .user-img {
   width: 50px;
@@ -272,89 +240,4 @@ section p {
   border-radius: 50%;
   background-image: url("Images/gagan.jpg");
   background-size: contain;
-}
-.title {
-  display: flex;
-  align-items: center;
-  justify-self: center;
-
-  width: 100%;
-  height: 50px;
-  /* background-color: chocolate; */
-  color: rgb(36, 36, 36);
-  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 24px;
-  font-weight: 700;
-}
-
-.diary-content {
-  width: 100%;
-  max-height: 100px;
-  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times,
-    serif;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 24px;
-  /*  background-color: aliceblue; */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* Number of lines to show */
-  -webkit-box-orient: vertical;
-}
-.travel-lesson {
-  /*  width: 100%;
-  height: 50px;
-  font-size: 14px;
-    background-color: chartreuse; 
-  margin-top: 10px;
-  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman",
-    Times, serif;
-  font-weight: 400;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 24px;
-   background-color: aliceblue; 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp:2 ; 
-  -webkit-box-orient: vertical; */
-  width: 100%;
-  max-height: 100px;
-  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman",
-    serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: normal;
-  line-height: 24px;
-  margin-top: 10px;
-  /*  background-color: aliceblue; */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Number of lines to show */
-  -webkit-box-orient: vertical;
-}
-
-.image {
-  position: relative;
-  left: 808px;
-  bottom: 145px;
-}
-.styled-quote {
-  font-style: italic;
-  /* Adjust color as needed */
-  position: relative;
-}
-.styled-quote:before {
-  content: "“";
-  font-size: 1.8em;
-}
-.styled-quote:after {
-  content: "”";
-  font-size: 1.8em;
-}
-a {
-  text-decoration: none;
-  color: inherit;
 }

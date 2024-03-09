@@ -179,8 +179,8 @@ if (isset($_SESSION["user_id"])) {
 
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-      echo '<a href= "view_content.php?id = ' . $row['id'] . '">';
-      print_r($row['id']);
+      echo '<a href= "view_content.php?id=' . $row['id'] . '">';
+
       echo '<div class="contents">';
       echo '<div class="content-show">';
 
