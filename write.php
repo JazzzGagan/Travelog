@@ -26,20 +26,26 @@
     <form method="post" enctype="multipart/form-data">
       <div class="input-section">
         <div class="photo-container">
-          <input type="file" name="image" id="image" />
+          <input type="file" name="image" id="image" required />
         </div>
       </div>
 
       <div class="input-section">
-        <textarea name="title" id="title" placeholder="Title"></textarea>
+        <textarea name="location" id="location" placeholder="location" required></textarea>
+      </div>
+
       </div>
 
       <div class="input-section">
-        <textarea name="diary-content" placeholder="Write your Diary...." id="diary-content"></textarea>
+        <textarea name="title" id="title" placeholder="Title" required></textarea>
       </div>
 
       <div class="input-section">
-        <textarea name="travel-lesson" placeholder="Travel Lesson..." id="travel-lesson"></textarea>
+        <textarea name="diary-content" placeholder="Write your Diary...." id="diary-content" required></textarea>
+      </div>
+
+      <div class="input-section">
+        <textarea name="travel-lesson" placeholder="Travel Lesson..." id="travel-lesson" required></textarea>
       </div>
 
       <div class="button-section">
@@ -83,15 +89,16 @@
       $imageName = $_FILES['image']['name'];
       $imageType = $_FILES['image']['type'];
       $imageData = (file_get_contents($_FILES['image']['tmp_name']));
+      $location = $_POST['location'];
       $title = $_POST['title'];
       $diaryContent = $_POST['diary-content'];
       $travelLesson = $_POST['travel-lesson'];
 
 
-      $sql = "INSERT INTO contents(user_id, title, diary_content, travel_lesson, img_name, mime_type, img_data, user_name)
-                                      VALUES(?, ?, ?, ?, ?, ?, ?,?)";
+      $sql = "INSERT INTO contents(user_id, title, diary_content, travel_lesson, img_name, mime_type, img_data, user_name, location)
+                                      VALUES(?, ?, ?, ?, ?, ?, ?,?,?)";
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param("ssssssss", $userId, $title, $diaryContent, $travelLesson, $imageName, $imageType, $imageData, $userName);
+      $stmt->bind_param("sssssssss", $userId, $title, $diaryContent, $travelLesson, $imageName, $imageType, $imageData, $userName, $location);
 
       if ($stmt->execute()) {
         echo "Content uploaded sucessfully.";

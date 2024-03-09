@@ -106,8 +106,14 @@ if (isset($_SESSION["user_id"])) {
                 echo '<div class="user-info">';
                 echo '<div class="user-img">';
                 echo "</div>";
-                
+
                 echo '<p> ' . $row['user_name'] . '</p>';
+
+                echo '<div class="user-location">';
+                echo "<p>" . $row['location'] . "</p>";
+                echo '<i class="fa-solid fa-location-dot"></i>';
+                echo "</div>";
+
 
                 echo "</div>";
 
@@ -116,13 +122,13 @@ if (isset($_SESSION["user_id"])) {
                 echo "</div>";
 
                 echo '<div class="image">';
-                echo "<img src='data:image/jpeg;base64," . base64_encode($row['img_data']) . "' height='680' width='1050'  />";
+                echo "<img src='data:image/jpeg;base64," . base64_encode($row['img_data']) . "' height='100%' width='100%'  />";
                 echo "</div>";
 
 
 
                 echo '<div class="diary-content">';
-                echo "<p>" . $row['diary_content'] . "</p>";
+                echo "<p>" . nl2br($row['diary_content']) . "</p>";
                 echo "</div>";
 
                 echo '<div class="travel-lesson">';

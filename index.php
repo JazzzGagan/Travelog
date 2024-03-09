@@ -25,6 +25,7 @@ if (isset($_SESSION["user_id"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -40,6 +41,7 @@ if (isset($_SESSION["user_id"])) {
           </span>
           <div class="text">
             <h2>Compose</h2>
+
         </a>
       </div>
     </div>
@@ -165,7 +167,7 @@ if (isset($_SESSION["user_id"])) {
 
 
   $conn = require __DIR__ . "/contentdb.php";
-  $query = "SELECT c.id, c.user_id, c.title, c.diary_content, c.travel_lesson, c.img_data, c.user_name
+  $query = "SELECT c.id, c.user_id, c.title, c.diary_content, c.travel_lesson, c.img_data, c.user_name, c.location
   FROM contents c
   INNER JOIN (
       SELECT user_id, MAX(id) AS latest_id
@@ -188,6 +190,12 @@ if (isset($_SESSION["user_id"])) {
       echo '<div class="user-img">';
       echo "</div>";
       echo '<p> ' . $row['user_name'] . '</p>';
+
+      echo '<div class="user-location">';
+      echo "<p>" . $row['location'] . "</p>";
+      echo '<i class="fa-solid fa-location-dot"></i>';
+      echo "</div>";
+
 
 
       echo "</div>";

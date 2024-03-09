@@ -255,6 +255,7 @@ section p {
   display: flex;
   align-items: center;
   cursor: pointer;
+  /*   border-bottom: 1px solid rgb(236, 229, 229); */
 }
 .user-info p {
   margin-left: 10px;
@@ -268,11 +269,30 @@ section p {
 .user-img {
   width: 50px;
   height: 50px;
-  background-color: aqua;
+  /* background-color: aqua; */
   border-radius: 50%;
   background-image: url("Images/gagan.jpg");
   background-size: contain;
 }
+
+.user-location {
+  width: 500px;
+  height: 50px;
+  /*   background-color: blueviolet; */
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  color: rgb(91, 89, 89);
+}
+.user-location i {
+  position: relative;
+  font-size: 16px;
+  font-weight: 600;
+  left: 8px;
+}
+
 .title {
   display: flex;
   align-items: center;
