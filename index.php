@@ -60,15 +60,19 @@ if (isset($_SESSION["user_id"])) {
       <div class="user-image-container">
         <div class="user-image"></div>
         <div class="user-name-email">
-          <div class="user-name">
-            <?php if (isset($user)) : ?>
-              <p><?= htmlspecialchars($user["name"]) ?></p>
-          </div>
-          <span>Personal</span>
+          <a href="user-profile.php">
+            <div class="user-name">
+              <?php if (isset($user)) : ?>
 
-          <div class="user-email">
-            <p class="truncate"><?= htmlspecialchars($user["email"]) ?></p>
-          </div>
+                <p><?= htmlspecialchars($user["name"]) ?></p>
+
+            </div>
+            <span>Personal</span>
+
+            <div class="user-email">
+              <p class="truncate"><?= htmlspecialchars($user["email"]) ?></p>
+            </div>
+          </a>
 
         </div>
 
@@ -187,9 +191,13 @@ if (isset($_SESSION["user_id"])) {
       echo '<div class="content-show">';
 
       echo '<div class="user-info">';
+
       echo '<div class="user-img">';
       echo "</div>";
+
+
       echo '<p> ' . $row['user_name'] . '</p>';
+
 
       echo '<div class="user-location">';
       echo "<p>" . $row['location'] . "</p>";
