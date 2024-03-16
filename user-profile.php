@@ -90,7 +90,7 @@ if (isset($_SESSION["user_id"])) {
 
     <div class="info-container">
       <div class="user-profile-container">
-        <div class="image"></div>
+        <div class="info-image"></div>
         <div class="name">
           <?php if (isset($user)) : ?>
             <h2><?= htmlspecialchars($user["name"]) ?></h2>
@@ -113,7 +113,7 @@ if (isset($_SESSION["user_id"])) {
   if (isset($_SESSION["user_id"])) {
     $id = $_SESSION['user_id'];
     $conn = require __DIR__ . "/contentdb.php";
-    $query = "SELECT * FROM contents where user_id = ?";
+    $query = "SELECT * FROM contents where user_id = ? ORDER BY id DESC";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('i', $id);
     $stmt->execute();
@@ -121,6 +121,8 @@ if (isset($_SESSION["user_id"])) {
 
     if (mysqli_num_rows($result) > 0) {
       while ($row = mysqli_fetch_assoc($result)) {
+        echo '<a href="view_content.php?id=' . $row['id'] . '">';
+
         echo '<div class="contents">';
         echo '<div class="content-show">';
 
@@ -150,12 +152,25 @@ if (isset($_SESSION["user_id"])) {
         echo '<p><em class="styled-quote">' . $row['travel_lesson'] . '</em></p>';
         echo "</div>";
 
-        echo '<div class="image-2">';
+        echo '<div class="image">';
         echo "<img src='data:image/jpeg;base64," . base64_encode($row['img_data']) . "' height='140' width='140'  />";
         echo "</div>";
 
+
+
         echo "</div>";
         echo "</div>";
+
+        echo '<div class="more-option">';
+
+        echo '<i class="fa-solid fa-ellipsis" data-tooltip="More" ></i>';
+        echo '<span class="tooltip-text">More</span>';
+        echo '<div class="triangle">';
+        echo "</div>";
+
+        echo "</div>";
+        echo '<div class="options">';
+        echo "<div>";
       }
     } else {
       echo "No contents available";

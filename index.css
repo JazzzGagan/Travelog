@@ -215,6 +215,7 @@ section p {
   background-color: aquamarine;
 }
  */
+
 .contents {
   position: relative;
   top: 100px;
@@ -349,9 +350,9 @@ section p {
 }
 
 .image {
-  position: relative;
-  left: 808px;
-  bottom: 145px;
+  position: absolute;
+  left: 990px;
+  bottom: 78px;
 }
 .styled-quote {
   font-style: italic;
