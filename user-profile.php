@@ -158,19 +158,21 @@ if (isset($_SESSION["user_id"])) {
 
 
 
-        echo "</div>";
+
+        echo '<div class="options-cont">';
+        echo '<div class="option-text">options</div>';
+        echo '<div class="option-edit">Edit Diary</div>';
+        echo '<div class="option-delete">Delete Diary</div>';
         echo "</div>";
 
         echo '<div class="more-option">';
-
         echo '<i class="fa-solid fa-ellipsis" data-tooltip="More" ></i>';
         echo '<span class="tooltip-text">More</span>';
-        echo '<div class="triangle">';
         echo "</div>";
 
+
         echo "</div>";
-        echo '<div class="options">';
-        echo "<div>";
+        echo "</div>";
       }
     } else {
       echo "No contents available";
@@ -181,10 +183,7 @@ if (isset($_SESSION["user_id"])) {
 
 
   ?>
-  <section>
 
-
-  </section>
 
 
 
@@ -195,8 +194,20 @@ if (isset($_SESSION["user_id"])) {
 
       menuContainer.addEventListener("click", () => {
         userMenu.classList.toggle("show");
-      })
-    })
+      });
+
+
+      const ellipses = document.querySelectorAll(".more-option");
+
+      ellipses.forEach((ellipse) => {
+        const options = ellipse.parentNode.querySelector(".options-cont");
+
+        ellipse.addEventListener("click", (event) => {
+          event.preventDefault();
+          options.classList.toggle("show2");
+        });
+      });
+    });
   </script>
 
 </body>
