@@ -14,5 +14,8 @@
     <div class="delete-diary"></div>
   </div>
 </body>
+<?php if ($is_invalid) : ?>
+    <em style="color: red;">Invalid Login</em>
+  <?php endif; ?>
 
 </html>

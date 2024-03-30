@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  width: 100%;
+  height: 80px;
+  /*  background-color: #a2d729; */
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid black;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+}
+.nav-container {
+  width: 95%;
+  height: 60px;
+ /*  background-color: aqua; */
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./Images/Travelog_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 175px;
+  height: 60px;
+  margin-top: 10px;
+}
+.admin-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e7e1e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  cursor: pointer;
+}
+.admin-profile:hover{
+    background-color: #cfcbcb;
+}

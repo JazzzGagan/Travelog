@@ -160,9 +160,13 @@ if (isset($_SESSION["user_id"])) {
 
 
         echo '<div class="options-cont">';
-        echo '<div class="option-text">options</div>';
-        echo '<div class="option-edit">Edit Diary</div>';
-        echo '<div class="option-delete">Delete Diary</div>';
+        echo '<div class="option-text">Options</div>';
+        echo '<div class="option-edit">';
+        echo '<a href="edit.php?id=' . $row['id'] . '">Edit Diary</a>';
+        echo "</div>";
+        echo '<div class="option-delete">';
+        echo '<a href="delete.php?id=' . $row['id'] . '">Delete Diary</a>';
+        echo "</div>";
         echo "</div>";
 
         echo '<div class="more-option">';
