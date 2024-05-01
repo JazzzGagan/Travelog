@@ -4,13 +4,12 @@
 }
 
 .hero-section {
-  background-image: url("./Travel_images/samrat-khadka-YlQvtieHmQg-unsplash.jpg");
+  background-image: url("../Travel_images/samrat-khadka-YlQvtieHmQg-unsplash.jpg");
   width: 100%;
   height: 820px;
   background-position: center;
   background-size: cover;
   position: absolute;
-
   top: 0px;
   border-bottom: 1px solid black;
 }
@@ -64,7 +63,7 @@
   height: 100%;
   width: 100%;
   backdrop-filter: blur(10px);
-  opacity: 1;
+  opacity: 1; 
   pointer-events: none;
   transition: 0.1s ease;
   z-index: 3;

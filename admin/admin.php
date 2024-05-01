@@ -13,7 +13,7 @@ if($admin){
     session_start();
     session_regenerate_id();
    
-    $_SESSION['user_name'] = $admin['id'];
+    $_SESSION['admin_id'] = $admin['id'];
 
     
 

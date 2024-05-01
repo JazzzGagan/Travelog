@@ -10,6 +10,7 @@
   background-color: white;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   border-bottom: 1px solid black;
   display: flex;
   align-items: center;
@@ -18,12 +19,13 @@
   z-index: 1;
 }
 .nav-bar {
-  width: 90%;
+  max-width: 90%;
   height: 60px;
   background-color: transparent;
   margin: auto;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .logo {
   background-image: url("./Images/Travelog_logo.png");
@@ -295,6 +297,8 @@ a {
 .contents {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
   flex-direction: column;
 
   top: 100px;
